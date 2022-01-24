@@ -44,3 +44,14 @@ alcohols.each do |alcohol|
   puts "New Alcohol Created #{alcohol}"
 end
 
+mixers.each do |mixer|
+
+  Mixer.create!(
+    name: mixer,
+    volume_in_ml: 280,
+    user_id: User.all.pluck(:id).sample
+  )
+
+  puts "New Mixer Created #{mixer}"
+end
+
