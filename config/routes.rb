@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get '/alcohols', to: "alcohols#index"
     post '/alcohols', to: "alcohols#create"
     put '/alcohols/:id', to: "alcohols#update"
+    get '/mixers', to: "mixers#index"
+    post '/mixers', to: "mixers#create"
+    put '/mixers/:id', to: "mixers#update"
+
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

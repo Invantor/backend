@@ -10,7 +10,7 @@ GET http://localhost:3000/api/mixers
 POST http://localhost:3000/api/mixers
 Content-Type: application/json
 # Use the User http client to log in with a user, then get the jwt tokent and paste it here in the format of "Bearer <jwt token>"
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDIwMTcsInN1YiI6MTR9.QWfVrNrL6fUg53eKukG1ETtHgIrGrxvn42XbmGcCMfo
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxMDU2OTMsInN1YiI6NH0.Z2lg5BPc9ikddcYmUHrjuxWIC6XjqgOHJnSdi_KiN9U
 
 {
     "name":"Pepsi",
@@ -22,12 +22,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDIwM
 
 ### Edit an Existing Alcohol
 
-PUT http://localhost:3000/api/mixers/37
+PUT http://localhost:3000/api/mixers/6
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDU2OTQsInN1YiI6Mjh9.A023tFAKRsIe7xvFcHkWacLmSZCkApYVanR_fZNZNo4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxMDU2OTMsInN1YiI6NH0.Z2lg5BPc9ikddcYmUHrjuxWIC6XjqgOHJnSdi_KiN9U
 
 {
-    "name":"werwerwerewrewrwerwer",
+    "name":"Cola",
     "volume_in_ml": 4000,
     "critical_volume":2000
 
