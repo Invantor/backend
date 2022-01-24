@@ -13,6 +13,7 @@ User.destroy_all()
 users = ["user@user.com","justin@email.com","luke@email.com"]
 alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", " Jamerson's Irish Whisky", "Congnac"]
 mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer"]
+drinks
 
 
 
@@ -54,4 +55,21 @@ mixers.each do |mixer|
 
   puts "New Mixer Created #{mixer}"
 end
+
+# drinks.each do |drink|
+
+#   # alcohol_name: Alcohol.all.pluck(:name).sample,
+#   # mixer_name: Mixer.all.pluck(:name).sample,
+#   # volume_in_ml: 280,
+#   Drink.create!(
+#     alcohol_id: Alcohol.all.pluck(:id).sample,
+#     mixer_id: Mixer.all.pluck(:id).sample,
+#     name: drink,
+#     user_id: User.all.pluck(:id).sample
+#   )
+
+#   puts "New drink reated #{drink}"
+# end
+
+# drink1 = Drink.create([name: "Bourben and Coke", alcohol_id:1, alcohol_amount: 30, mixer_id:1, mixer_amount: 250,])
 

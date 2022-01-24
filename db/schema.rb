@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_095617) do
+ActiveRecord::Schema.define(version: 2022_01_24_102048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 2022_01_24_095617) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_alcohols_on_user_id"
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name", limit: 30, null: false
+    t.integer "alcohol_amount", default: 0, null: false
+    t.bigint "alcohol_id", null: false
+    t.bigint "mixer_id", null: false
+    t.integer "mixer_amount", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alcohol_id"], name: "index_drinks_on_alcohol_id"
+    t.index ["mixer_id"], name: "index_drinks_on_mixer_id"
+    t.index ["user_id"], name: "index_drinks_on_user_id"
   end
 
   create_table "mixers", force: :cascade do |t|
@@ -45,5 +59,8 @@ ActiveRecord::Schema.define(version: 2022_01_24_095617) do
   end
 
   add_foreign_key "alcohols", "users"
+  add_foreign_key "drinks", "alcohols"
+  add_foreign_key "drinks", "mixers"
+  add_foreign_key "drinks", "users"
   add_foreign_key "mixers", "users"
 end

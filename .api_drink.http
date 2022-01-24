@@ -1,0 +1,34 @@
+### Successful Responses
+
+### Retrieve All Alcohol from Alcohol Table
+
+GET http://localhost:3000/api/alcohols
+
+
+### Add new Alcohol
+
+POST http://localhost:3000/api/alcohols
+Content-Type: application/json
+# Use the User http client to log in with a user, then get the jwt tokent and paste it here in the format of "Bearer <jwt token>"
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDIwMTcsInN1YiI6MTR9.QWfVrNrL6fUg53eKukG1ETtHgIrGrxvn42XbmGcCMfo
+
+{
+    "name":"Black Goose",
+    "volume_in_ml": 4000,
+    "critical_volume":2000
+
+}
+
+
+### Edit an Existing Alcohol
+
+PUT http://localhost:3000/api/alcohols/37
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDU2OTQsInN1YiI6Mjh9.A023tFAKRsIe7xvFcHkWacLmSZCkApYVanR_fZNZNo4
+
+{
+    "name":"werwerwerewrewrwerwer",
+    "volume_in_ml": 4000,
+    "critical_volume":2000
+
+}
