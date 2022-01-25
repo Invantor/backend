@@ -1,6 +1,6 @@
 class AlcoholsController < ApplicationController
     before_action :authenticate_user, except: [:index]
-    before_action :set_alcohol, only: [:show,:update,:destroy]
+    before_action :set_alcohol, only: [:update,:destroy]
     before_action :check_ownership, only: [:update,:destroy]
 
     # Get all Alcohols
@@ -16,7 +16,7 @@ class AlcoholsController < ApplicationController
 
     def show
 
-        @alcohol = Alcohol.find_by(name: params[:name])
+        @alcohol = Alcohol.find_by_name(params[:name])
 
         puts @alcohol
         

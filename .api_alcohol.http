@@ -20,9 +20,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDIwM
 }
 
 
-### Show a specific User by username
+### Show a specific Alcohol by name
 
-GET http://localhost:3000/api/alcohols/7
+GET http://localhost:3000/api/alcohols/:id
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjY3NDgsInN1YiI6OH0.Cx08gErhz-X1OOPBlJUId3FENRVrBN71NspjnjeSjZQ
 
