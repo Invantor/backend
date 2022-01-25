@@ -42,12 +42,21 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/api/auth/users/1
 
-### Signing in with Correct Details
-
+### Admin Signing in with Correct Details
 POST http://localhost:3000/api/auth/sign_in
 Content-Type: application/json
 
 {
     "username": "admin@admin.com",
     "password": "password123"
+}
+
+
+### Nonadmin Signing in with Correct Details
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+    "username": "user@user.com",
+    "password": "password"
 }
