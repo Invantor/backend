@@ -32,3 +32,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDU2O
     "critical_volume":2000
 
 }
+
+### DELETE>destroy
+DELETE http://localhost:3000/api/alcohols/8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjU4MDksInN1YiI6OH0.XNApwVYzcv553yKJOATJYx2ftUOVTi_LB7hJGzm25gk
+

@@ -37,6 +37,13 @@ class AlcoholsController < ApplicationController
 
     end
 
+    # DELETE /alcohols/1
+    def destroy
+        @alcohol.destroy
+
+        render json: :ok
+      end
+
     private
      def alcohol_params
         params.require(:alcohol).permit(:name,:volume_in_ml,:critical_volume,:user_id)

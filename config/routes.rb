@@ -11,9 +11,11 @@ Rails.application.routes.draw do
     get '/alcohols', to: "alcohols#index"
     post '/alcohols', to: "alcohols#create"
     put '/alcohols/:id', to: "alcohols#update"
+    delete '/alcohols/:id', to: 'alcohols#destroy'
     get '/mixers', to: "mixers#index"
     post '/mixers', to: "mixers#create"
     put '/mixers/:id', to: "mixers#update"
+    
 
 
   end

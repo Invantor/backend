@@ -37,6 +37,12 @@ class MixersController < ApplicationController
 
     end
 
+    def destroy
+        @mixer.destroy
+
+        render json: :ok
+      end
+
     private
      def mixer_params
         params.require(:mixer).permit(:name,:volume_in_ml,:critical_volume,:user_id)
