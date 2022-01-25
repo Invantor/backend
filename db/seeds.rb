@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Alcohol.destroy_all()
+Mixer.destroy_all()
+Drink.destroy_all()
 User.destroy_all()
 
 
 users = ["user@user.com","justin@email.com","luke@email.com"]
 alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", " Jamerson's Irish Whisky", "Congnac"]
 mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer"]
-drinks
+drinks = ["Drink 1","Drink 2", "Drink 3", "Drink 4", "Drink 5","Drink 6"]
 
 
 
@@ -26,12 +28,15 @@ users.each do |user|
       puts "User Account created for #{user}"
 end
 
-User.create!(
+admin = User.create!(
   username: "admin@admin.com",
   password: "password123",
   password_confirmation: "password123",
   admin:true
 )
+
+
+
 
 
 alcohols.each do |alcohol|
@@ -56,20 +61,18 @@ mixers.each do |mixer|
   puts "New Mixer Created #{mixer}"
 end
 
-# drinks.each do |drink|
+drinks.each do |drink|
+  Drink.create!(
+    alcohol_id: Alcohol.all.pluck(:id).sample,
+    mixer_id: Mixer.all.pluck(:id).sample,
+    name: drink,
+    user_id: User.all.pluck(:id).sample
+  )
 
-#   # alcohol_name: Alcohol.all.pluck(:name).sample,
-#   # mixer_name: Mixer.all.pluck(:name).sample,
-#   # volume_in_ml: 280,
-#   Drink.create!(
-#     alcohol_id: Alcohol.all.pluck(:id).sample,
-#     mixer_id: Mixer.all.pluck(:id).sample,
-#     name: drink,
-#     user_id: User.all.pluck(:id).sample
-#   )
+  puts "#{drink} Created."
+end
 
-#   puts "New drink reated #{drink}"
-# end
-
-# drink1 = Drink.create([name: "Bourben and Coke", alcohol_id:1, alcohol_amount: 30, mixer_id:1, mixer_amount: 250,])
-
+puts "----------------------------------"
+puts "Admin username: admin@admin.com"
+puts "Admin password: password123"
+puts "----------------------------------"

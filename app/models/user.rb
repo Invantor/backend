@@ -4,4 +4,5 @@ class User < ApplicationRecord
 
     has_many :mixers, dependent: :destroy
     has_many :alcohols, dependent: :destroy
+    has_many :drinks, dependent: :destroy
 end
