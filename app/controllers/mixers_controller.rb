@@ -1,6 +1,6 @@
 class MixersController < ApplicationController
     before_action :authenticate_user, except: [:index]
-    before_action :set_mixer, only: [:show,:update,:destroy]
+    before_action :set_mixer, only: [:update,:destroy]
     before_action :check_ownership, only: [:update,:destroy]
 
     # Get all Mixers
@@ -15,13 +15,12 @@ class MixersController < ApplicationController
     end
 
     def show
-
-        @mixer = Mixer.find_by_id(params[:id])
-        
+        @mixer = Mixer.find_by_name(params[:name])
+        puts @mixer
         if @mixer
             render json: @mixer
         else
-            render json: {error: "Mixer not found"}, status:404
+            render json: {error: "Alcohol not found"}, status:404
         end
     end
 
