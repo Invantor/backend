@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_102048) do
   end
 
   create_table "drinks", force: :cascade do |t|
-    t.string "name", limit: 30, null: false
+    t.string "name", null: false
     t.integer "alcohol_amount", default: 0, null: false
     t.bigint "alcohol_id", null: false
     t.bigint "mixer_id", null: false
@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 2022_01_24_102048) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "username", null: false
+    t.string "full_name", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false

@@ -13,9 +13,9 @@ User.destroy_all()
 
 
 users = ["user@user.com","justin@email.com","luke@email.com"]
-alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", " Jamerson's Irish Whisky", "Congnac"]
+alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac"]
 mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer"]
-drinks = ["Drink 1","Drink 2", "Drink 3", "Drink 4", "Drink 5","Drink 6"]
+
 
 
 
@@ -24,6 +24,7 @@ users.each do |user|
         username: user,
         password: "password",
         password_confirmation: "password",
+        full_name: "This is the full name of the user"
       )
       puts "User Account created for #{user}"
 end
@@ -32,7 +33,8 @@ admin = User.create!(
   username: "admin@admin.com",
   password: "password123",
   password_confirmation: "password123",
-  admin:true
+  admin:true,
+  full_name: "This is the full name of the user"
 )
 
 
@@ -61,16 +63,26 @@ mixers.each do |mixer|
   puts "New Mixer Created #{mixer}"
 end
 
-drinks.each do |drink|
-  Drink.create!(
-    alcohol_id: Alcohol.all.pluck(:id).sample,
-    mixer_id: Mixer.all.pluck(:id).sample,
-    name: drink,
-    user_id: User.all.pluck(:id).sample
+
+
+for i in 1..5
+  
+  alcohol = Alcohol.all.sample
+  mixer = Mixer.all.sample
+
+  new_drink = Drink.create!(
+    alcohol_id: alcohol.id,
+    mixer_id: mixer.id,
+    name: "#{alcohol.name} & #{mixer.name}",
+    user_id: User.all.pluck(:id).sample,
+    alcohol_amount: rand(0...100),
+    mixer_amount: rand(0...100)
   )
 
-  puts "#{drink} Created."
+  puts "#{new_drink.name} created."
+
 end
+
 
 puts "----------------------------------"
 puts "Admin username: admin@admin.com"
