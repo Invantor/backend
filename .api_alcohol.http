@@ -20,6 +20,16 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDIwM
 }
 
 
+### Show a specific User by username
+
+GET http://localhost:3000/api/alcohols/7
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjY3NDgsInN1YiI6OH0.Cx08gErhz-X1OOPBlJUId3FENRVrBN71NspjnjeSjZQ
+
+{
+    "name":"Jim Beam"
+}
+
 ### Edit an Existing Alcohol
 
 PUT http://localhost:3000/api/alcohols/37

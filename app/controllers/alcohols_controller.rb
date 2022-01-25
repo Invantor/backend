@@ -14,6 +14,19 @@ class AlcoholsController < ApplicationController
         end
     end
 
+    def show
+
+        @alcohol = Alcohol.find_by(name: params[:name])
+
+        puts @alcohol
+        
+        if @alcohol
+            render json: @alcohol
+        else
+            render json: {error: "Alcohol not found"}, status:404
+        end
+    end
+
     def create
         @alcohol = current_user.alcohols.create(alcohol_params)
 

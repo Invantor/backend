@@ -14,6 +14,17 @@ class MixersController < ApplicationController
         end
     end
 
+    def show
+
+        @mixer = Mixer.find_by_id(params[:id])
+        
+        if @mixer
+            render json: @mixer
+        else
+            render json: {error: "Mixer not found"}, status:404
+        end
+    end
+
     def create
         @mixer = current_user.mixers.create(mixer_params)
 
