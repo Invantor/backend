@@ -20,7 +20,7 @@ class MixersController < ApplicationController
         if @mixer
             render json: @mixer
         else
-            render json: {error: "Alcohol not found"}, status:404
+            render json: {error: "Mixer not found"}, status:404
         end
     end
 

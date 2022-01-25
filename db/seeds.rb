@@ -73,7 +73,7 @@ for i in 1..5
   new_drink = Drink.create!(
     alcohol_id: alcohol.id,
     mixer_id: mixer.id,
-    name: "#{alcohol.name} & #{mixer.name}",
+    name: "#{alcohol.name}" + " and " "#{mixer.name}",
     user_id: User.all.pluck(:id).sample,
     alcohol_amount: rand(0...100),
     mixer_amount: rand(0...100)
@@ -83,6 +83,16 @@ for i in 1..5
 
 end
 
+test_drink = Drink.create!(
+    alcohol_id: 1,
+    mixer_id: 1,
+    name: "Double trouble",
+    user_id: 1,
+    alcohol_amount: 60,
+    mixer_amount: 60
+  )
+
+puts "#{test_drink.name} created."
 
 puts "----------------------------------"
 puts "Admin username: admin@admin.com"

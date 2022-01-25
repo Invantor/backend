@@ -21,11 +21,11 @@ Rails.application.routes.draw do
     put '/mixers/:id', to: "mixers#update"
     delete '/mixers/:id', to: 'mixers#destroy'
     ### Drinks endpoints
-    get '/drinks', to: "mixers#index"
-    get '/drinks/:id', to: "mixers#show"
-    post '/drinks', to: "mixers#create"
-    put '/drinks/:id', to: "mixers#update"
-    delete '/drinks/:id', to: 'mixers#destroy'
+    get '/drinks', to: "drinks#index"
+    get '/drinks/:id', to: "drinks#show"
+    post '/drinks', to: "drinks#create"
+    put '/drinks/:id', to: "drinks#update"
+    delete '/drinks/:id', to: 'drinks#destroy'
     
 
 

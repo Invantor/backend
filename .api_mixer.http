@@ -19,7 +19,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjg2N
 
 }
 
-###
+### Show
 GET http://localhost:3000/api/mixers/:id
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjg2NjYsInN1YiI6NH0.ktDwLW7gJMcbr28lNb2Hi-dWg7qq3IIXbPiodMaAQ0Q
