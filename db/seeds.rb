@@ -13,11 +13,8 @@ User.destroy_all()
 
 
 users = ["user@user.com","justin@email.com","luke@email.com"]
-alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac"]
-mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer"]
-
-
-
+alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
+mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
 
 users.each do |user|
     User.create!(
@@ -36,10 +33,6 @@ admin = User.create!(
   admin:true,
   full_name: "This is the full name of the user"
 )
-
-
-
-
 
 alcohols.each do |alcohol|
 
@@ -63,9 +56,7 @@ mixers.each do |mixer|
   puts "New Mixer Created #{mixer}"
 end
 
-
-
-for i in 1..5
+for i in 1..50
   
   alcohol = Alcohol.all.sample
   mixer = Mixer.all.sample
@@ -83,16 +74,16 @@ for i in 1..5
 
 end
 
-test_drink = Drink.create!(
-    alcohol_id: 1,
-    mixer_id: 1,
-    name: "Double trouble",
-    user_id: 1,
-    alcohol_amount: 60,
-    mixer_amount: 60
-  )
+# test_drink = Drink.create!(
+#     alcohol_id: 1,
+#     mixer_id: 1,
+#     name: "Double trouble",
+#     user_id: 1,
+#     alcohol_amount: 60,
+#     mixer_amount: 60
+#   )
 
-puts "#{test_drink.name} created."
+# puts "#{test_drink.name} created."
 
 puts "----------------------------------"
 puts "Admin username: admin@admin.com"
