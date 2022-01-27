@@ -1,7 +1,7 @@
 class DrinksController < ApplicationController
-    before_action :authenticate_user, except: [:index]
+    # before_action :authenticate_user, except: [:index]
     before_action :set_drink, only: [:update,:destroy]
-    before_action :check_ownership, only: [:update,:destroy]
+    # before_action :check_ownership, only: [:update,:destroy]
 
     # Get all Drinks
     def index
@@ -15,7 +15,8 @@ class DrinksController < ApplicationController
     end
 
     def create
-        @drink = current_user.drinks.create(drink_params)
+        # @drink = current_user.drinks.create(drink_params)
+        @drink = Drink.create(drink_params)
 
         if @drink.errors.any?
             render json: @drink.errors, status: :unprocessable_entity
@@ -49,8 +50,9 @@ class DrinksController < ApplicationController
 
     private
      def drink_params
-        params.require(:drink).permit(:name,:volume_in_ml,:critical_volume,:user_id)
-     end
+        # params.require(:drink).permit(:id,:name,:alcohol_amount,:alcohol_id,:mixer_id,:mixer_amount,:user_id)
+        params.require(:drink).permit(:id,:name,:alcohol_amount,:alcohol_id,:mixer_id,:mixer_amount)
+    end
 
      def set_drink
         begin
@@ -64,12 +66,12 @@ class DrinksController < ApplicationController
 
 
      # This is the logic to check if current user is the drink owner OR if the current user is an admin
-     def check_ownership
-        if current_user.id === @drink.user_id || current_user.admin
-            return
-        else
-            render json: {error: "You don't have permission to do that"}, status: 401
-        end
-     end
+    #  def check_ownership
+    #     if current_user.id === @drink.user_id || current_user.admin
+    #         return
+    #     else
+    #         render json: {error: "You don't have permission to do that"}, status: 401
+    #     end
+    #  end
 
 end

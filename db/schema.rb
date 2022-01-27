@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 2022_01_24_102048) do
     t.string "name", null: false
     t.integer "volume_in_ml", default: 0, null: false
     t.integer "critical_volume", default: 0, null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_alcohols_on_user_id"
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -31,37 +29,21 @@ ActiveRecord::Schema.define(version: 2022_01_24_102048) do
     t.bigint "alcohol_id", null: false
     t.bigint "mixer_id", null: false
     t.integer "mixer_amount", default: 0, null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["alcohol_id"], name: "index_drinks_on_alcohol_id"
     t.index ["mixer_id"], name: "index_drinks_on_mixer_id"
-    t.index ["user_id"], name: "index_drinks_on_user_id"
   end
 
   create_table "mixers", force: :cascade do |t|
     t.string "name", limit: 30, null: false
     t.integer "volume_in_ml", default: 0, null: false
     t.integer "critical_volume", default: 0, null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_mixers_on_name", unique: true
-    t.index ["user_id"], name: "index_mixers_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "full_name", null: false
-    t.string "password_digest"
-    t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "alcohols", "users"
   add_foreign_key "drinks", "alcohols"
   add_foreign_key "drinks", "mixers"
-  add_foreign_key "drinks", "users"
-  add_foreign_key "mixers", "users"
 end

@@ -1,7 +1,7 @@
 class MixersController < ApplicationController
-    before_action :authenticate_user, except: [:index]
+    # before_action :authenticate_user, except: [:index]
     before_action :set_mixer, only: [:update,:destroy]
-    before_action :check_ownership, only: [:update,:destroy]
+    # before_action :check_ownership, only: [:update,:destroy]
 
     # Get all Mixers
     def index
@@ -25,7 +25,8 @@ class MixersController < ApplicationController
     end
 
     def create
-        @mixer = current_user.mixers.create(mixer_params)
+        # @mixer = current_user.mixers.create(mixer_params)
+        @mixer = Mixer.create(mixer_params)
 
         if @mixer.errors.any?
             render json: @mixer.errors, status: :unprocessable_entity
@@ -55,7 +56,8 @@ class MixersController < ApplicationController
 
     private
      def mixer_params
-        params.require(:mixer).permit(:name,:volume_in_ml,:critical_volume,:user_id)
+        # params.require(:mixer).permit(:name,:volume_in_ml,:critical_volume,:user_id)
+        params.require(:mixer).permit(:name,:volume_in_ml,:critical_volume)
      end
 
      def set_mixer
@@ -70,12 +72,12 @@ class MixersController < ApplicationController
 
 
      # This is the logic to check if current user is the mixer owner OR if the current user is an admin
-     def check_ownership
-        if current_user.id === @mixer.user_id || current_user.admin
-            return
-        else
-            render json: {error: "You don't have permission to do that"}, status: 401
-        end
-     end
+    #  def check_ownership
+    #     if current_user.id === @mixer.user_id || current_user.admin
+    #         return
+    #     else
+    #         render json: {error: "You don't have permission to do that"}, status: 401
+    #     end
+    #  end
 
 end
