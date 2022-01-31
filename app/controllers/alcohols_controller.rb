@@ -1,7 +1,7 @@
 class AlcoholsController < ApplicationController
     before_action :authenticate_user, except: [:index]
     before_action :set_alcohol, only: [:update,:destroy]
-    before_action :check_ownership, only: [:update,:destroy]
+    before_action :check_ownership, only: [:destroy]
 
     # Get all Alcohols
     def index
@@ -71,7 +71,7 @@ class AlcoholsController < ApplicationController
 
      # This is the logic to check if current user is the alcohol owner OR if the current user is an admin
      def check_ownership
-        if current_user.id === @alcohol.user_id || current_user.admin
+        if current_user.admin
             return
         else
             render json: {error: "You don't have permission to do that"}, status: 401
