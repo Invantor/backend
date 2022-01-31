@@ -26,11 +26,10 @@ class AlcoholsController < ApplicationController
 
     def create
         @alcohol = current_user.alcohols.create(alcohol_params)
-
-        if @alcohol.errors.any?
-            render json: @alcohol.errors, status: :unprocessable_entity
-        else
+        if @alcohol.save
             render json: @alcohol, status: 201
+        else
+            render json: { error: @alcohol.errors.full_messages[0]}, status: 500
         end
     end
 

@@ -56,7 +56,7 @@ mixers.each do |mixer|
   puts "New Mixer Created #{mixer}"
 end
 
-for i in 1..50
+for i in 1..3
   
   alcohol = Alcohol.all.sample
   mixer = Mixer.all.sample

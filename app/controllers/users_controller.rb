@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       auth_token = Knock::AuthToken.new payload: {sub: @user.id}
-      render json: {username: @user.username, jwt: auth_token.token, fullName:@user.full_name, admin: @user.admin}, status: 200
+      render json: {username: @user.username, jwt: auth_token.token, fullName:@user.full_name, admin: @user.admin, user_id: @user.id}, status: 200
     else
       render json: {error: "Invalid credientials provided."}, status: 404
     end
