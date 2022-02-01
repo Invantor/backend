@@ -27,22 +27,21 @@ class MixersController < ApplicationController
     def create
         @mixer = current_user.mixers.create(mixer_params)
 
-        if @mixer.errors.any?
-            render json: @mixer.errors, status: :unprocessable_entity
-        else
+        if @mixer.save
             render json: @mixer, status: 201
+        else
+            render json: {error: @mixer.errors.full_messages[0]}, status: 500
         end
     end
 
     def update
         @mixer = Mixer.find_by_id(params[:id])
 
-        @mixer.update(mixer_params)
 
-        if @mixer.errors.any?
-            render json: @mixer.errors, status: :unprocessable_entity
+        if @mixer.update(mixer_params)
+            render json:{message: "Successfully Updated",data:@mixer}, status: 200
         else
-            render json: @mixer, status: 200
+            render json: {error: @mixer.errors.full_messages[0]}, status: 500
         end
 
     end

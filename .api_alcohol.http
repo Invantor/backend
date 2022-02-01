@@ -10,10 +10,10 @@ GET http://localhost:3000/api/alcohols
 POST http://localhost:3000/api/alcohols
 Content-Type: application/json
 # Use the User http client to log in with a user, then get the jwt tokent and paste it here in the format of "Bearer <jwt token>"
-Authorization: Bearer 1eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDM2MTA1NDQsInN1YiI6NH0.WaAQ6D8a9p44x_BcWRKCs5SXD6vXakUWrDKTVkBAoNM
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDM3NzAwOTAsInN1YiI6NH0.TucB-MNxHSHjZwS5RQFWlK2IgDkXMUTP3vLCs_GBMn8
 
 {
-    "name":"Black Goose21q",
+    "name":"Jim Beam",
     "volume_in_ml": 4000,
     "critical_volume":2000
 
