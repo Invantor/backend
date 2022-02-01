@@ -36,21 +36,20 @@ class AlcoholsController < ApplicationController
     def update
         @alcohol = Alcohol.find_by_id(params[:id])
 
-        @alcohol.update(alcohol_params)
-
-        if @alcohol.errors.any?
-            render json: @alcohol.errors, status: :unprocessable_entity
+        if @alcohol.update(alcohol_params)
+            render json:{message: "Successfully Updated",data:@alcohol}, status: 200
         else
-            render json: @alcohol, status: 200
+            render json: {error: @alcohol.errors.full_messages[0]}, status: 500
         end
-
     end
 
     # DELETE /alcohols/1
     def destroy
-        @alcohol.destroy
-
-        render json: :ok
+        if @alcohol.destroy
+            render json: { message: "Successfully deleted"}, status: :ok
+        else
+            render json: { error: @alcohol.errors.full_messages[0]}, status: 500
+        end
       end
 
     private
