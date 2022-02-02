@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- 
+ wrap_parameters false
 
 
   # Get All Users
@@ -54,7 +54,6 @@ class UsersController < ApplicationController
     
     if @user.save
       auth_token = Knock::AuthToken.new payload: {sub: @user.id}
-      p auth_token
       render json: {username: @user.username, jwt: auth_token.token}, status: :created
     else
       render json:@user.errors, status: :unprocessable_entity
@@ -79,7 +78,7 @@ class UsersController < ApplicationController
 
   # User Account params
   def user_params
-    params.require(:user).permit(:id,:username,:password,:password_confirmation,:admin,:is_active,:user)
+    params.permit(:user,:id,:username,:password,:password_confirmation,:admin,:is_active)
   end
 
   
