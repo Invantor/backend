@@ -31,7 +31,7 @@ Content-Type: application/json
 
 ### Updating a User by ID
 
-PUT http://localhost:3000/api/auth/users/2
+PUT http://localhost:3000/api/auth/users/22
 Content-Type: application/json
 
 {
