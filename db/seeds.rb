@@ -21,7 +21,7 @@ users.each do |user|
         username: user,
         password: "password",
         password_confirmation: "password",
-        full_name: "This is the full name of the user"
+        is_active: true
       )
       puts "User Account created for #{user}"
 end
@@ -31,7 +31,15 @@ admin = User.create!(
   password: "password123",
   password_confirmation: "password123",
   admin:true,
-  full_name: "This is the full name of the user"
+  is_active: true
+)
+
+deactivated = User.create!(
+  username: "de@de.com",
+  password: "password123",
+  password_confirmation: "password123",
+  admin:false,
+  is_active: false
 )
 
 alcohols.each do |alcohol|

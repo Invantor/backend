@@ -58,6 +58,15 @@ POST http://localhost:3000/api/auth/sign_in
 Content-Type: application/json
 
 {
-    "username": "usewrwrr@user.com",
-    "password": "password"
+    "username": "user@user.com",
+    "password": "password123"
+}
+
+### Deactivated user Signing in with Correct Details
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+    "username": "de@de.com",
+    "password": "password123"
 }
