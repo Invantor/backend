@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+ wrap_parameters false
 
 
   # Get All Users
@@ -30,12 +31,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
 
-    @user.update(user_params)
-
-    if @user.errors.any?
-      render json: @user.errors, status: :unprocessable_entity
+    if @user.update(user_params)
+    render json: {message: "Successfully Updated",data:@user}, status: 200
     else
-      render json: {username:@user.username}, status: 200
+      render json: {error: @user.errors.full_messages[0]}, status: 500
     end
 
   end
@@ -55,7 +54,6 @@ class UsersController < ApplicationController
     
     if @user.save
       auth_token = Knock::AuthToken.new payload: {sub: @user.id}
-      p auth_token
       render json: {username: @user.username, jwt: auth_token.token}, status: :created
     else
       render json:@user.errors, status: :unprocessable_entity
@@ -80,7 +78,9 @@ class UsersController < ApplicationController
 
   # User Account params
   def user_params
-    params.permit(:user,:id,:username,:password,:password_confirmation,:admin, :full_name)
+    params.permit(:user,:id,:username,:password,:password_confirmation,:admin,:is_active)
   end
+
+  
 
 end

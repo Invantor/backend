@@ -37,7 +37,8 @@ Knock.setup do |config|
   ##
   ## Default:
   # config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
-  config.token_secret_signature_key = -> { Rails.application.credentials.secret_key_base }
+  # config.token_secret_signature_key = -> { Rails.application.credentials.secret_key_base }
+  config.token_secret_signature_key = -> { Rails.application.credentials.read }
 
 
   ## If using Auth0, uncomment the line below
