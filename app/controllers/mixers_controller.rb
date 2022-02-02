@@ -39,7 +39,7 @@ class MixersController < ApplicationController
 
 
         if @mixer.update(mixer_params)
-            render json:{message: "Successfully Updated",data:@mixer}, status: 200
+            render json: {message: "Successfully Updated",data:@mixer}, status: 200
         else
             render json: {error: @mixer.errors.full_messages[0]}, status: 500
         end

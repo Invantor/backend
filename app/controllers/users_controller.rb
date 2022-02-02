@@ -66,11 +66,11 @@ class UsersController < ApplicationController
   def sign_in
     @user = User.find_by_username(params[:username])
 
-    if @user && @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password]) && @user.is_active === true
       auth_token = Knock::AuthToken.new payload: {sub: @user.id}
-      render json: {username: @user.username, jwt: auth_token.token, fullName:@user.full_name, admin: @user.admin, user_id: @user.id}, status: 200
+      render json: {username: @user.username, jwt: auth_token.token, admin: @user.admin, user_id: @user.id}, status: 200
     else
-      render json: {error: "Invalid credientials provided."}, status: 404
+      render json: {error: "Invalid Login Details"}, status: 404
     end
 
   end
@@ -83,8 +83,4 @@ class UsersController < ApplicationController
     params.permit(:user,:id,:username,:password,:password_confirmation,:admin, :full_name)
   end
 
-  def set_user
-
-
-  end
 end
