@@ -14,16 +14,6 @@ class DrinksController < ApplicationController
         end
     end
 
-    def create
-        @drink = current_user.drinks.create(drink_params)
-
-        if @drink.errors.any?
-            render json: @drink.errors, status: :unprocessable_entity
-        else
-            render json: @drink, status: 201
-        end
-    end
-
     def show
         @drink = Drink.find_by_name(params[:name])
         puts @drink
@@ -34,22 +24,37 @@ class DrinksController < ApplicationController
         end
     end
 
+    def create
+        @drink = current_user.drinks.create(drink_params)
+        if @drink.save
+            render json: @drink, status: 201
+        else
+            render json: { error: @drink.errors.full_messages[0]}, status: 500
+        end
+    end
+
     def update
         @drink = Drink.find_by_id(params[:id])
 
-        @drink.update(drink_params)
-
-        if @drink.errors.any?
-            render json: @drink.errors, status: :unprocessable_entity
+        if @drink.update(drink_params)
+            render json:{message: "Successfully Updated",data:@drink}, status: 200
         else
-            render json: @drink, status: 200
+            render json: {error: @drink.errors.full_messages[0]}, status: 500
         end
-
     end
+
+    # DELETE /drinks/1
+    def destroy
+        if @drink.destroy
+            render json: { message: "Successfully deleted"}, status: :ok
+        else
+            render json: { error: @drink.errors.full_messages[0]}, status: 500
+        end
+      end
 
     private
      def drink_params
-        params.require(:drink).permit(:name,:volume_in_ml,:critical_volume,:user_id)
+        params.require(:drink).permit(:id,:name,:alcohol_amount,:alcohol_id,:mixer_amount,:mixer_id,:user_id)
      end
 
      def set_drink
@@ -64,7 +69,7 @@ class DrinksController < ApplicationController
 
 
      # This is the logic to check if current user is the drink owner OR if the current user is an admin
-    def check_ownership
+     def check_ownership
         if current_user.admin
             return
         else

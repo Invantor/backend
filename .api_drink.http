@@ -8,7 +8,7 @@ GET http://localhost:3000/api/drinks
 ### Add new Alcohol
 POST http://localhost:3000/api/drinks
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNzA1MzksInN1YiI6MX0.VIWRSYqNl-qAd-uV6_ljOCBNWIK5Jv1RkiIFYgRKmNc
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDM4NTQxODgsInN1YiI6NH0.ovKhvC4v3EiN60IFF5WWuXKOEq2TI-EhyL6Wz4b8CWY
 # Use the User http client to log in with a user, then get the jwt tokent and paste it here in the format of "Bearer <jwt token>"
 
 {
@@ -18,7 +18,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNzA1M
   "alcohol_id": 1,
   "mixer_id": 1,
   "mixer_amount": 60,
-  "user_id": 1,
+  "user_id": 1
 }
 
 ### Show
