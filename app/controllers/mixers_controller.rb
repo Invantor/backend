@@ -28,7 +28,7 @@ class MixersController < ApplicationController
         @mixer = current_user.mixers.create(mixer_params)
 
         if @mixer.save
-            render json: @mixer, status: 201
+            render json:{message: "Successfully Created", data:@mixer}, status: 201
         else
             render json: {error: @mixer.errors.full_messages[0]}, status: 500
         end
