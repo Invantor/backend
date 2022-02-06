@@ -7,7 +7,7 @@ class MixersController < ApplicationController
     def index
         @mixers = Mixer.all
         
-        if @mixers.length > 1
+        if @mixers.length >= 1
             render json: @mixers
         else
             render json: {error: "No mixer in database"}, status: 404
