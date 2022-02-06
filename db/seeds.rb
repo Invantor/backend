@@ -12,13 +12,13 @@ Drink.destroy_all()
 User.destroy_all()
 
 
-# users = ["user@user.com","justin@email.com","luke@email.com"]
-# alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
-# mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
+users = ["user@user.com","justin@email.com","luke@email.com"]
+alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
+mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
 
-users = ["admin"]
-alcohols = ["Jim Beam"]
-mixers = ["Coke"]
+# users = ["admin"]
+# alcohols = ["Jim Beam"]
+# mixers = ["Coke"]
 
 users.each do |user|
     User.create!(
@@ -50,8 +50,9 @@ alcohols.each do |alcohol|
 
   Alcohol.create!(
     name: alcohol,
-    volume_in_ml: 60,
-    user_id: User.all.pluck(:id).sample
+    volume_in_ml: rand(1...2000),
+    user_id: User.all.pluck(:id).sample,
+    critical_volume: rand(1...2000),
   )
 
   puts "New Alcohol Created #{alcohol}"
@@ -62,7 +63,8 @@ mixers.each do |mixer|
   Mixer.create!(
     name: mixer,
     volume_in_ml: 280,
-    user_id: User.all.pluck(:id).sample
+    user_id: User.all.pluck(:id).sample,
+    critical_volume: rand(1...2000),
   )
 
   puts "New Mixer Created #{mixer}"
@@ -78,8 +80,9 @@ for i in 0..0
     mixer_id: mixer.id,
     name: "#{alcohol.name}" + " and " "#{mixer.name}",
     user_id: User.all.pluck(:id).sample,
-    alcohol_amount: rand(0...100),
-    mixer_amount: rand(0...100)
+    alcohol_amount: rand(1...100),
+    mixer_amount: rand(1...100),
+    number_sold: rand(1...100)
   )
 
   puts "#{new_drink.name} created."
