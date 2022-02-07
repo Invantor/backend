@@ -27,7 +27,7 @@ class DrinksController < ApplicationController
     def create
         @drink = current_user.drinks.create(drink_params)
         if @drink.save
-            render json: @drink, status: 201
+            render json:{message: "Successfully Created", data:@drink}, status: 201
         else
             render json: { error: @drink.errors.full_messages[0]}, status: 500
         end
