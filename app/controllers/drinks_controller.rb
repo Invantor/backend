@@ -37,7 +37,7 @@ class DrinksController < ApplicationController
         @drink = Drink.find_by_id(params[:id])
 
         if @drink.update(drink_params)
-            render json:{message: "Successfully Updated",data:@drink}, status: 200
+            render json:{message: "Successfully Updated", data:@drink}, status: 200
         else
             render json: {error: @drink.errors.full_messages[0]}, status: 500
         end
