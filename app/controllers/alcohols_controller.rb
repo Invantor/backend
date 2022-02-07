@@ -7,7 +7,7 @@ class AlcoholsController < ApplicationController
     def index
         @alcohols = Alcohol.all
         
-        if @alcohols.length > 1
+        if @alcohols.length >= 1
             render json: @alcohols
         else
             render json: {error: "No alcohol in database"}, status: 404

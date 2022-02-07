@@ -7,7 +7,7 @@ class DrinksController < ApplicationController
     def index
         @drinks = Drink.all
         
-        if @drinks.length > 1
+        if @drinks.length >= 1
             render json: @drinks
         else
             render json: {error: "No drink in database"}, status: 404
@@ -54,7 +54,7 @@ class DrinksController < ApplicationController
 
     private
      def drink_params
-        params.require(:drink).permit(:id,:name,:alcohol_amount,:alcohol_id,:mixer_amount,:mixer_id,:user_id)
+        params.require(:drink).permit(:id,:name,:alcohol_amount,:alcohol_id,:mixer_amount,:mixer_id,:user_id,:number_sold)
      end
 
      def set_drink
