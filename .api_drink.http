@@ -32,13 +32,15 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjg2N
 
 ### Edit an Existing Alcohol
 
-PUT http://localhost:3000/api/drinks/
+PUT http://localhost:3000/api/drinks/2
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMwMDU2OTQsInN1YiI6Mjh9.A023tFAKRsIe7xvFcHkWacLmSZCkApYVanR_fZNZNo4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDQyNDAxMTQsInN1YiI6NH0.sg4-m3CdVlgUdf8BknXyHSHPlXNSOIX2mUM85S6ZPaM
 
 {
-    "name":"werwerwerewrewrwerwer",
-    "volume_in_ml": 4000,
-    "critical_volume":2000
-
+  "name": "The bestest P-p-p-pepsi",
+  "alcohol_id": 3,
+  "alcohol_amount": 90,
+  "mixer_id": 1,
+  "mixer_amount": 60,
+  "user_id": 1
 }
