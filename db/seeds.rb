@@ -12,13 +12,13 @@ Drink.destroy_all()
 User.destroy_all()
 
 
-users = ["user@user.com","justin@email.com","luke@email.com"]
-alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
-mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
+# users = ["user@user.com","justin@email.com","luke@email.com"]
+# alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
+# mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
 
-# users = ["admin"]
-# alcohols = ["Jim Beam"]
-# mixers = ["Coke"]
+users = ["admin"]
+alcohols = ["Jim Beam"]
+mixers = ["Coke"]
 
 users.each do |user|
     User.create!(
