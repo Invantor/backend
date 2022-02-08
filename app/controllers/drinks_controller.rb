@@ -1,5 +1,5 @@
 class DrinksController < ApplicationController
-    before_action :authenticate_user, except: [:index]
+    before_action :authenticate_user!
     before_action :set_drink, only: [:update,:destroy]
     before_action :check_ownership, only: [:destroy]
 

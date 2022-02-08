@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
- wrap_parameters false
+ before_action :authenticate_user!
+  wrap_parameters false
 
 
   # Get All Users
