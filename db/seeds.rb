@@ -16,7 +16,7 @@ User.destroy_all()
 # alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
 # mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
 
-users = ["admin"]
+users = ["user@user.com"]
 alcohols = ["Jim Beam"]
 mixers = ["Coke"]
 
