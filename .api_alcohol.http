@@ -24,7 +24,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDQwMTAxM
 
 GET http://localhost:3000/api/alcohols/:id
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDMxNjY3NDgsInN1YiI6OH0.Cx08gErhz-X1OOPBlJUId3FENRVrBN71NspjnjeSjZQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDQzNTUxMDEsInN1YiI6NH0.Zzwvv9wHhazUI7c7xN1HuKm4X7ovbBbrRF-pdhKsakI
 
 {
     "name":"Jim Beam"
