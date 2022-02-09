@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_224400) do
 
   create_table "alcohols", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "volume_in_ml", default: 0, null: false
-    t.integer "critical_volume", default: 0, null: false
+    t.integer "volume_in_ml", null: false
+    t.integer "critical_volume", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_224400) do
 
   create_table "mixers", force: :cascade do |t|
     t.string "name", limit: 30, null: false
-    t.integer "volume_in_ml", default: 0, null: false
-    t.integer "critical_volume", default: 0, null: false
+    t.integer "volume_in_ml", null: false
+    t.integer "critical_volume", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
