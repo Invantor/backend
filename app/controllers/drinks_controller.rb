@@ -1,7 +1,7 @@
 class DrinksController < ApplicationController
-    # before_action :authenticate_user!, only: [:show,:create,:update,:destroy]
+    before_action :authenticate_user, except: [:index]
     before_action :set_drink, only: [:update,:destroy]
-    before_action :check_ownership, only: [:destroy]
+
 
     # Get all Drinks
     def index
@@ -46,9 +46,9 @@ class DrinksController < ApplicationController
     # DELETE /drinks/1
     def destroy
         if @drink.destroy
-            render json: { message: "Successfully deleted"}, status: :ok
+            render json: { message: "Successfully deleted"}, status: 200
         else
-            render json: { error: @drink.errors.full_messages[0]}, status: 500
+            render json: { error: "Unauthorised to Delete."}, status: 401
         end
       end
 
@@ -65,16 +65,6 @@ class DrinksController < ApplicationController
             
         end
 
-     end
-
-
-     # This is the logic to check if current user is the drink owner OR if the current user is an admin
-     def check_ownership
-        if current_user.admin
-            return
-        else
-            render json: {error: "You don't have permission to do that"}, status: 401
-        end
      end
 
 end
