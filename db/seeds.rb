@@ -12,13 +12,10 @@ Drink.destroy_all()
 User.destroy_all()
 
 
-# users = ["user@user.com","justin@email.com","luke@email.com"]
+users = ["user@user.com","justin@email.com","luke@email.com"]
 alcohols = ["Jim Beam", "Jack Daniels", "Woodford Reserve", "Jamerson's Irish Whisky", "Congnac", "Henesey", "Port", "Ardbeg", "Mezcal", "Archie Rose Gin" ]
 mixers = ["Coke","Sprite","Tonic Water","Soda Water","Ginger Beer", "Fanta", "Red-Bull", "V", "Mother", "Mountain Dew", "Dr. Pepper", "Creaming Soda", "Pepsi", "Root Beer" ]
 
-users = ["user@user.com"]
-# alcohols = ["Jim Beam"]
-# mixers = ["Coke"]
 
 users.each do |user|
     User.create!(
@@ -88,17 +85,6 @@ for i in 0..10
   puts "#{new_drink.name} created."
 
 end
-
-# test_drink = Drink.create!(
-#     alcohol_id: 1,
-#     mixer_id: 1,
-#     name: "Double trouble",
-#     user_id: 1,
-#     alcohol_amount: 60,
-#     mixer_amount: 60
-#   )
-
-# puts "#{test_drink.name} created."
 
 puts "----------------------------------"
 puts "Admin username: admin@admin.com"

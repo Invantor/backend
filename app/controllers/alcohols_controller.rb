@@ -16,7 +16,6 @@ class AlcoholsController < ApplicationController
 
     def show
         @alcohol = Alcohol.find_by_name(params[:name])
-        puts @alcohol
         if @alcohol
             render json: @alcohol
         else
@@ -46,10 +45,8 @@ class AlcoholsController < ApplicationController
     # DELETE /alcohols/1
     def destroy
         if  @alcohol.destroy
-            puts "in success"
             render json: { message: "Successfully deleted"}, status: 200
         else
-            puts "in fail"
             render json: { error: "Unauthorised to Delete."}, status: 401
         end
     end

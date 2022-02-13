@@ -16,7 +16,6 @@ class DrinksController < ApplicationController
 
     def show
         @drink = Drink.find_by_name(params[:name])
-        puts @drink
         if @drink
             render json: @drink
         else

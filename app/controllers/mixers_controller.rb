@@ -15,7 +15,6 @@ class MixersController < ApplicationController
 
     def show
         @mixer = Mixer.find_by_name(params[:name])
-        puts @mixer
         if @mixer
             render json: @mixer
         else
